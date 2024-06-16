@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cn">
 <head>
@@ -8,26 +9,72 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #000; /* 背景为黑色 */
+            color: #fff; /* 文字颜色为白色 */
             margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
         }
         h2 {
             text-align: left;
+            margin: 10px 0;
+            border-bottom: 2px solid #fff; /* 下划线 */
+            padding-bottom: 5px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+        hr {
+            border: 1px solid #fff; /* 水平线颜色为白色 */
+            width: 80%;
+        }
+        .button {
+            background-color: #555; /* 按钮背景颜色 */
+            border: none;
+            color: white; /* 按钮文字颜色 */
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s; /* 动态效果 */
+            border-radius: 5px; /* 圆角边框 */
+        }
+        .button:hover {
+            background-color: #777; /* 悬停时变化 */
+            transform: scale(1.05); /* 放大效果 */
+        }
+        .fade-in {
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <h2>欢迎来到ナナミ的网站！</h2>
-    <h2>网站由 ジュウハチジ 31ケー スタジオ 制作</h2>
-    <h2>主要负责人为ナナミ_オフィシャル</h2>
-    <h2>关于游戏视频，游戏攻略，在BILIBILI上传的视频，会在这里上传</h2>
-    <h2><a href="Song.html">网页音乐播放器</a></h2>
-    <h2><a href="Game01.html">新的HTML5游戏（Pong）</a></h2>
-    <h2><a href="indexJP.html">Japanese Lang</a></h2>
-    <h2>2024年6月16日 星期日 下午16时 更新公告</h2>
-    <h2>删除了两个多余的功能</h2>
-    <h2>加入“Bilibili Video”功能和游戏视频和攻略链接</h2>
-    <h2>搬运视频，并且修改CSS</h2>
-    <h2>---------------------------------------</h2>
+    <div class="container fade-in">
+        <h2>欢迎来到ナナミ的网站！</h2>
+        <h2>网站由 ジュウハチジ 31ケー スタジオ 制作</h2>
+        <h2>主要负责人为ナナミ_オフィシャル</h2>
+        <h2>关于游戏视频，游戏攻略，在BILIBILI上传的视频，会在这里上传</h2>
+        <a href="Song.html" class="button">网页音乐播放器</a>
+        <a href="Game01.html" class="button">新的HTML5游戏（Pong）</a>
+        <a href="indexJP.html" class="button">Japanese Lang</a>
+        <h2>2024年6月16日 星期日 下午16时 更新公告</h2>
+        <h2>删除了两个多余的功能</h2>
+        <h2>加入“Bilibili Video”功能和游戏视频和攻略链接</h2>
+        <h2>搬运视频，并且修改CSS</h2>
+        <hr>
+    </div>
 </body>
 </html>
