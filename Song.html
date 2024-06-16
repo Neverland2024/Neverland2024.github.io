@@ -5,28 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>31chans WMP</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-}
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+  }
 
-#songList {
-  list-style-type: none;
-  padding: 0;
-}
+  #songList {
+    list-style-type: none;
+    padding: 0;
+  }
 
-#songList li {
-  cursor: pointer;
-  margin-bottom: 5px;
-}
+  #songList li {
+    cursor: pointer;
+    margin-bottom: 5px;
+    transition: background-color 0.3s;
+  }
 
-#songList li:hover {
-  background-color: #f0f0f0;
-}
+  #songList li:hover {
+    background-color: #333;
+  }
 
-button {
-  margin-right: 10px;
-}
+  button {
+    margin-right: 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
 
+  button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  #playStatus {
+    margin-top: 20px;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    margin: 10px 0;
+  }
 </style>
 </head>
 <body>
@@ -35,8 +62,6 @@ button {
 
 <ul id="songList">
   <li data-src="初音ミク、Ryo - ODDS&ENDS.mp3">初音ミク、Ryo - ODDS&ENDS</li>
-  <li data-src="初音ミク、DECO#27、livetune - Tell Your World.mp3">初音ミク、DECO#27、livetune - Tell Your World</li>
-  <li data-src="Little Non - ハナマル☆センセイション (花丸☆Sensation).mp3">Little Non - ハナマル☆センセイション (花丸☆Sensation)</li>
   <li data-src="とあ、初音ミク - ツギハギスタッカート (拼凑的断音).mp3">とあ、初音ミク - ツギハギスタッカート (拼凑的断音)</li>
   <li data-src="サカナクション - ライトダンス (光之舞).mp3">サカナクション - ライトダンス (光之舞)</li>
   <li data-src="Neru、鏡音リン - 東京テディベア (东京泰迪熊).mp3">Neru、鏡音リン - 東京テディベア (东京泰迪熊)</li>
@@ -66,7 +91,7 @@ button {
   <li data-src="鏡音レン - 聖槍爆裂ボーイ (圣枪爆裂男孩)(EcstasyVersion).mp3">鏡音レン - 聖槍爆裂ボーイ (圣枪爆裂男孩)(EcstasyVersion)</li>
   <li data-src="青木陽菜 - 夢浮橋 (ユメノウキハシ).mp3">青木陽菜 - 夢浮橋 (ユメノウキハシ)</li>
   <li data-src="高橋優 - 16歳.mp3">高橋優 - 16歳</li>
-  <li data-src="麻倉亞恋 - Only you!.mp3">麻倉亞恋 - Only you!.mp3</li>
+  <li data-src="麻倉亞恋 - Only you!.mp3">麻倉亞恋 - Only you!</li>
 </ul>
 
 <button id="prevBtn">前へ</button>
