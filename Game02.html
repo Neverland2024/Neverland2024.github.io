@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .game-container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 800px;
+      margin: 20px 0;
+    }
+
+    .player {
+      text-align: center;
+    }
+
+    .hand {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .card {
+      width: 50px;
+      height: 80px;
+      border: 1px solid #000;
+      display: inline-block;
+      text-align: center;
+      line-height: 80px;
+      cursor: pointer;
+    }
+
+    .card.selected {
+      background-color: yellow;
+    }
+
+    .actions {
+      text-align: center;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+  <title>Card Game</title>
+</head>
+<body>
+  <div class="game-container">
+    <div class="player" id="player1">
+      <h2>亲方</h2>
+      <div class="hand" id="hand1"></div>
+    </div>
+    <div class="player" id="player2">
+      <h2>子方</h2>
+      <div class="hand" id="hand2"></div>
+    </div>
+  </div>
+  <div class="actions">
+    <button id="play-btn">出牌</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const player1Cards = ['C', 'C', 'C', 'C', 'A'];
+    const player2Cards = ['C', 'C', 'C', 'C', 'B'];
+    let player1SelectedCard = null;
+    let player2SelectedCard = null;
+
+    function initializeGame() {
+      const hand1 = document.getElementById('hand1');
+      const hand2 = document.getElementById('hand2');
+
+      hand1.innerHTML = '';
+      hand2.innerHTML = '';
+
+      player1Cards.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        cardElement.textContent = card;
+        cardElement.addEventListener('click', (event) => selectCard(1, card, event));
+        hand1.appendChild(cardElement);
+      });
+
+      player2Cards.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        cardElement.textContent = card;
+        cardElement.addEventListener('click', (event) => selectCard(2, card, event));
+        hand2.appendChild(cardElement);
+      });
+    }
+
+    function selectCard(player, card, event) {
+      if (player === 1) {
+        player1SelectedCard = card;
+        document.querySelectorAll('#hand1 .card').forEach(card => card.classList.remove('selected'));
+      } else {
+        player2SelectedCard = card;
+        document.querySelectorAll('#hand2 .card').forEach(card => card.classList.remove('selected'));
+      }
+      event.target.classList.add('selected');
+    }
+
+    function determineWinner() {
+      if (player1SelectedCard && player2SelectedCard) {
+        let result = '';
+        if (player1SelectedCard === player2SelectedCard) {
+          result = '平局';
+        } else if ((player1SelectedCard === 'A' && player2SelectedCard === 'C') ||
+                   (player1SelectedCard === 'C' && player2SelectedCard === 'B') ||
+                   (player1SelectedCard === 'A' && player2SelectedCard === 'B')) {
+          result = '亲方胜利';
+        } else {
+          result = '子方胜利';
+        }
+        document.getElementById('result').textContent = result;
+      }
+    }
+
+    document.getElementById('play-btn').addEventListener('click', determineWinner);
+
+    initializeGame();
+  </script>
+</body>
+</html>
+
