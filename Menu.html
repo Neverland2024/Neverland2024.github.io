@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="樱花阁官方网站">
+    <title>樱花阁</title>
+    <link rel="icon" href="icon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+        h2 {
+            text-align: center;
+            margin: 10px 0;
+            border-bottom: 2px solid #ff80b3;
+            padding-bottom: 5px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            padding: 20px;
+        }
+        hr {
+            border: 1px solid #ff80b3;
+            width: 80%;
+        }
+        .button {
+            background-color: #ff80b3;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #ff99cc;
+            transform: scale(1.05);
+        }
+        .category {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .price 
+            color: red;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <h2>樱花阁电竞为你服务</h>
+        <h2>连下 3 单及以上送 1 单</h2>
+        <h2>点 10 单以上送价值 70 块钱的单</h2>
+        <h2>坚决抵制拒绝卡保底行为</h2>
+        <h2>低于15w撤离不计入保底</h2>
+        <h2>服务至上</h2>
+        <div class="category">
+            <h2>普通图</h2>
+            <span class="price">10RMB / 20万科恩币</span>
+            <span class="price">20RMB / 45万科恩币</span>
+            <span class="price">30RMB / 66万科恩币</span>
+        </div>
+        <div class="category">
+            <h2>普通封锁</h2>
+            <span class="price">40RMB / 80万科恩币</span>
+            <span class="price">60RMB / 100万科恩币</span>
+        </div><div class="category">
+            <h2>强化</h2>
+            <span class="price">50RMB / 80万科恩币</span>
+            <span class="price">70RMB / 100万科恩币</span>
+            <span class="price">140RMB / 200万科恩币</span>
+            <span class="price">300RMB / 600万科恩币</span>
+        </div><div class="category">
+            <h2>特殊</h2>
+            <span class="price">100RMB / 不出大金不结单 </span>
+            <span class="price">150RMB / 200万科恩币大金</span>
+            <span class="price">150RMB / 280万科恩币没大金</span>
+            <span class="price">300RMB / 指定大金</span>
+            <span class="price">热成像100RMB / 1t </span>
+            <span class="price">热成像80RMB / 120万科恩币</span>
+            <span class="price">热成像80RMB / 170万科恩币没T</span>
+            <span class="price">热成像280RMB / 3T</span>
+            <span class="price">单局赌约100RMB / 110万科恩币 </span>
+            <span class="price">单局赌约150RMB / 150万科恩币</span>
+            <span class="price">单局赌约300RMB / 280万科恩币</span>
+            <span class="price">机密888RMB / 1488万科恩币</span>
+            <span class="price">机密3888RMB / 6000万科恩币 </span>
+            <span class="price">清图100RMB / 不清图不结单</span>
+            <span class="price">老鼠单60RMB / 100万科恩币全静步/老鼠套装/无皮肤装备不计入保底</span>
+            <span class="price">老鼠单60RMB / 70万科恩币</span>
+            <span class="price">老鼠单120RMB / 140万科恩币</span>
+            <span class="price">男陪25RMB / 一小时</span>
+            <span class="price">女陪35RMB / 一小时</span>
+            <hr>
+    </div>
+
+    <script>
+        function createCherryBlossom() {
+            const blossom = document.createElement('div');
+            blossom.className = 'cherry-blossom';
+            blossom.style.left = `${Math.random() * 100}vw`;
+            document.body.appendChild(blossom);
+
+            blossom.addEventListener('animationend', () => {
+                blossom.remove();
+            });
+        }
+
+        setInterval(createCherryBlossom, 2000);
+    </script>
+</body>
+</html>
