@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="樱花阁官方网站">
     <title>樱花阁</title>
     <link rel="icon" href="icon.png">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff; 
-            color: #000; 
+            background-color: #fff;
+            color: #000;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -17,27 +18,28 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
-            position: relative; 
+            position: relative;
         }
         h2 {
             text-align: center;
             margin: 10px 0;
-            border-bottom: 2px solid #ff80b3; 
+            border-bottom: 2px solid #ff80b3;
             padding-bottom: 5px;
         }
         .container {
             width: 100%;
             max-width: 800px;
             text-align: center;
-            opacity: 0; 
+            opacity: 0;
             transition: opacity 1s ease-in-out;
+            padding: 20px;
         }
         hr {
-            border: 1px solid #ff80b3; 
+            border: 1px solid #ff80b3;
             width: 80%;
         }
         .button {
-            background-color: #ff80b3; 
+            background-color: #ff80b3;
             border: none;
             color: white;
             padding: 15px 32px;
@@ -51,7 +53,7 @@
             border-radius: 5px;
         }
         .button:hover {
-            background-color: #ff99cc; 
+            background-color: #ff99cc;
             transform: scale(1.05);
         }
         .fade-in {
@@ -65,7 +67,7 @@
             border-radius: 50%;
             z-index: 1;
             animation: drift 10s linear infinite;
-            pointer-events: none; 
+            pointer-events: none;
         }
         @keyframes drift {
             0% {
@@ -87,21 +89,6 @@
     </style>
 </head>
 <body>
-    <script>
-        function createCherryBlossom() {
-            const blossom = document.createElement('div');
-            blossom.className = 'cherry-blossom';
-            blossom.style.left = `${Math.random() * 100}vw`; 
-            document.body.appendChild(blossom);
-
-            setTimeout(() => {
-                blossom.remove(); 
-            }, 10000);
-        }
-
-        setInterval(createCherryBlossom, 2000);
-    </script>
-    
     <div class="container fade-in">
         <h2>欢迎来到樱花阁官方网站</h2>
         <h2>网站由 YOTRI 制作</h2>
@@ -115,6 +102,20 @@
         <h2>删除其他不必要的功能，加入更多选择项</h2>
         <hr>
     </div>
-</body>
-</html> 
 
+    <script>
+        function createCherryBlossom() {
+            const blossom = document.createElement('div');
+            blossom.className = 'cherry-blossom';
+            blossom.style.left = `${Math.random() * 100}vw`;
+            document.body.appendChild(blossom);
+
+            blossom.addEventListener('animationend', () => {
+                blossom.remove();
+            });
+        }
+
+        setInterval(createCherryBlossom, 2000);
+    </script>
+</body>
+</html>
