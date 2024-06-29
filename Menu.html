@@ -1,138 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Description Bars</title>
+    <meta name="description" content="樱花阁官方网站">
+    <title>樱花阁</title>
+    <link rel="icon" href="icon.png">
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
         }
-
-        .container {
+        h2 {
             text-align: center;
-            width: 80%;
-            max-width: 800px;
+            margin: 10px 0;
+            border-bottom: 2px solid #ff80b3;
+            padding-bottom: 5px;
         }
-
+        .container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            padding: 20px;
+        }
+        hr {
+            border: 1px solid #ff80b3;
+            width: 80%;
+        }
         .button {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #ff80b3;
             border: none;
-            padding: 10px 20px;
+            color: white;
+            padding: 15px 32px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 5px;
+            margin: 4px 2px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
             border-radius: 5px;
         }
-
-        .category {
-            display: none;
-            padding: 20px;
-            margin-top: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.5s ease;
+        .button:hover {
+            background-color: #ff99cc;
+            transform: scale(1.05);
         }
-
-        .category.fade-in {
-            display: block;
-            animation: fade-in 0.5s ease;
+        .fade-in {
+            opacity: 1;
         }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .description-bar {
-            height: 20px;
-            background-color: #3498db;
-            margin: 10px;
-            display: inline-block;
-            vertical-align: top;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .description-bar:before {
-            content: "";
+        .cherry-blossom {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: -100%;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 20%, transparent 80%);
-            transition: left 0.5s ease;
+            height: 10px;
+            width: 10px;
+            background-color: #ff80b3;
+            border-radius: 50%;
+            z-index: 1;
+            animation: drift 10s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes drift {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
 
-        .description-bar:hover:before {
-            left: 0;
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .button {
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Interactive Description Bars Demo</h2>
-        
-        <button class="button" onclick="showCategory('category1')">Category 1</button>
-        <button class="button" onclick="showCategory('category2')">Category 2</button>
-        <button class="button" onclick="showCategory('category3')">Category 3</button>
-        <button class="button" onclick="showCategory('category4')">Category 4</button>
-        <button class="button" onclick="showCategory('category5')">Category 5</button>
-
-        <div id="category1" class="category">
-            <div class="description-bar"></div>
-            <div class="description-bar"></div>
-            <div class="description-bar"></div>
-        </div>
-        <div id="category2" class="category">
-            <div class="description-bar"></div>
-            <div class="description-bar"></div>
-        </div>
-        <div id="category3" class="category">
-            <div class="description-bar"></div>
-            <div class="description-bar"></div>
-            <div class="description-bar"></div>
-            <div class="description-bar"></div>
-        </div>
-        <div id="category4" class="category">
-            <div class="description-bar"></div>
-        </div>
-        <div id="category5" class="category">
-            <div class="description-bar"></div>
-            <div class="description-bar"></div>
-            <div class="description-bar"></div>
-        </div>
+    <div class="container fade-in">
+        <h2>樱花阁电竞为您服务</h2>
+        <h2>连下 3 单及以上送 1 单</h2>
+        <h2>点 10 单以上送价值 80 万科恩币单</h2>
+        <h2>坚决抵制，拒绝卡保底行为</h2>
+        <h2>低于15万科恩币撤离不计入保底</h2>
+        <h2>服务至上</h2>
+        <h2>------------------------------------</h2>
+        <h2>普通图</h2>
+        <button class="button" onclick="createCherryBlossom()">10RMB / 20万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">20RMB / 45万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">30RMB / 66万科恩币</button>
+        <h2>------------------------------------</h2>
+        <h2>普通封锁</h2>
+        <button class="button" onclick="createCherryBlossom()">40RMB / 88万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">60RMB / 100万科恩币</button>
+        <h2>------------------------------------</h2>
+        <h2>强化</h2>
+        <button class="button" onclick="createCherryBlossom()">50RMB / 80万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">70RMB / 100万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">140RMB / 200万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">300RMB / 600万科恩币</button>
+        <h2>------------------------------------</h2>
+        <h2>特殊</h2>
+        <button class="button" onclick="createCherryBlossom()">100RMB / 不出大金不结单</button>
+        <button class="button" onclick="createCherryBlossom()">150RMB / 200万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">150RMB / 280万科恩币（没大金）</button>
+        <button class="button" onclick="createCherryBlossom()">300RMB / 指定大金</button>
+        <button class="button" onclick="createCherryBlossom()">100RMB / 1T</button>
+        <button class="button" onclick="createCherryBlossom()">80RMB / 120万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">80RMB / 180万科恩币（没T）</button>
+        <button class="button" onclick="createCherryBlossom()">280RMB / 3T</button>
+        <button class="button" onclick="createCherryBlossom()">单局赌约100RMB / 110万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">单局赌约150RMB / 150万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">单局赌约300RMB / 280万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">机密888RMB / 1488万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">机密3888RMB / 6000万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">清图100RMB / 不清图不结单</button>
+        <button class="button" onclick="createCherryBlossom()">老鼠单60RMB / 100万科恩币（全程静步/老鼠套装/无皮肤装备不计入保底）</button>
+        <button class="button" onclick="createCherryBlossom()">老鼠单60RMB / 70万科恩币</button>
+        <button class="button" onclick="createCherryBlossom()">老鼠单120RMB / 140万科恩币</button>
+        <h2>------------------------------------</h2>
+        <h2>陪玩</h2>
+        <button class="button" onclick="createCherryBlossom()">25RMB / 男陪</button>
+        <button class="button" onclick="createCherryBlossom()">35RMB / 女陪</button>
     </div>
 
     <script>
-        function showCategory(categoryId) {
-            const categories = document.querySelectorAll('.category');
-            categories.forEach(category => {
-                if (category.id === categoryId) {
-                    category.classList.add('fade-in');
-                } else {
-                    category.classList.remove('fade-in');
-                }
+        function createCherryBlossom() {
+            const blossom = document.createElement('div');
+            blossom.className = 'cherry-blossom';
+            blossom.style.left = `${Math.random() * 100}vw`;
+            document.body.appendChild(blossom);
+
+            blossom.addEventListener('animationend', () => {
+                blossom.remove();
             });
         }
     </script>
 </body>
 </html>
-
 
