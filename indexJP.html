@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanami Official</title>
+    <meta name="description" content="桜花閣公式ウェブサイト">
+    <title>桜花閣</title>
     <link rel="icon" href="icon.png">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000; 
-            color: #fff; 
+            background-color: #fff;
+            color: #000;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -17,26 +18,30 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
+            position: relative;
         }
         h2 {
-            text-align: left;
+            text-align: center;
             margin: 10px 0;
-            border-bottom: 2px solid #fff; 
+            border-bottom: 2px solid #ff80b3;
             padding-bottom: 5px;
         }
         .container {
             width: 100%;
             max-width: 800px;
             text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            padding: 20px;
         }
         hr {
-            border: 1px solid #fff; 
+            border: 1px solid #ff80b3;
             width: 80%;
         }
         .button {
-            background-color: #555; 
+            background-color: #ff80b3;
             border: none;
-            color: white; 
+            color: white;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
@@ -44,35 +49,74 @@
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s; 
-            border-radius: 5px; 
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
         }
         .button:hover {
-            background-color: #777;
-            transform: scale(1.05); 
+            background-color: #ff99cc;
+            transform: scale(1.05);
         }
         .fade-in {
-            animation: fadeIn 2s;
+            opacity: 1;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .cherry-blossom {
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            background-color: #ff80b3;
+            border-radius: 50%;
+            z-index: 1;
+            animation: drift 10s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes drift {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .button {
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container fade-in">
-       <h2>欢迎来到ナナミ的网站！</h2>
-       <h2>网站由 ジュウハチジ 31ケー スタジオ 制作</h2>
-       <h2>主要负责人为ナナミ_オフィシャル</h2>
-       <h2>关于游戏视频，游戏攻略，在BILIBILI上传的视频，会在这里上传</h2>
-       <a href="MainJP.html" class="button">Useful</a>
-       <a href="indexJP.html" class="button">Japanese Lang</a>
-       <h2>2024年6月16日日曜日午後16時公告更新</h2>
-       <h2>2つの余分な機能が削除されました/h2>
-       <h2>「Bilibili Video」機能とゲーム動画と攻略リンクを追加</h2>
-       <h2>ビデオを搬送し、CSSを修正する</h2>
-       <hr>
+        <h2>桜花閣公式ウェブサイトへようこそ</h2>
+        <h2>サイト制作: YOTRI</h2>
+        <h2>主要担当者: Linus と Xil0</h2>
+        <h2>桜花閣の料金表、メンバー情報、契約などの詳細機能はこちらで発表されます</h2>
+        <a href="Main.html" class="button">詳細機能</a>
+        <a href="index.html" class="button">ウェブサイト中国語選択肢</a>
+        <h2>2024年6月29日 午前10時</h2>
+        <h2>サイト名を桜花閣に変更しました</h2>
+        <h2>より多くのダイナミックを追加、今後も改訂を続けます</h2>
+        <h2>他の不要な機能を削除し、さらに選択肢を追加します</h2>
+        <hr>
     </div>
+
+    <script>
+        function createCherryBlossom() {
+            const blossom = document.createElement('div');
+            blossom.className = 'cherry-blossom';
+            blossom.style.left = `${Math.random() * 100}vw`;
+            document.body.appendChild(blossom);
+
+            blossom.addEventListener('animationend', () => {
+                blossom.remove();
+            });
+        }
+
+        setInterval(createCherryBlossom, 2000);
+    </script>
 </body>
 </html>
+
