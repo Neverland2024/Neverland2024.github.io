@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,10 +33,25 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
             padding: 20px;
+            margin-top: 20px; /* 调整与标题之间的间距 */
         }
         hr {
             border: 1px solid #ff80b3;
             width: 80%;
+            margin: 20px auto; /* 居中并增加与上下内容的间距 */
+        }
+        .category {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px; /* 调整分类之间的间距 */
+        }
+        .price {
+            color: red;
+            display: block;
+            margin-top: 10px;
         }
         .button {
             background-color: #ff80b3;
@@ -56,25 +71,33 @@
             background-color: #ff99cc;
             transform: scale(1.05);
         }
-        .category {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            display: inline-block;
+
+        /* 添加樱花动画样式 */
+        .cherry-blossom {
+            position: absolute;
+            background-image: url('cherry-blossom.png'); /* 替换为樱花图片路径 */
+            width: 20px;
+            height: 20px;
+            animation: blossom 4s linear infinite;
         }
-        .price 
-            color: red;
-            display: block;
-            margin-top: 10px;
+
+        @keyframes blossom {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container fade-in">
-        <h2>樱花阁电竞为你服务</h>
-        <h2>连下 3 单及以上送 1 单</h2>
-        <h2>点 10 单以上送价值 70 块钱的单</h2>
+        <h2>樱花阁电竞为你服务</h2>
+        <h2>连下3单及以上送1单</h2>
+        <h2>点10单以上送价值70块钱的单</h2>
         <h2>坚决抵制拒绝卡保底行为</h2>
         <h2>低于15w撤离不计入保底</h2>
         <h2>服务至上</h2>
@@ -88,34 +111,20 @@
             <h2>普通封锁</h2>
             <span class="price">40RMB / 80万科恩币</span>
             <span class="price">60RMB / 100万科恩币</span>
-        </div><div class="category">
+        </div>
+        <div class="category">
             <h2>强化</h2>
             <span class="price">50RMB / 80万科恩币</span>
             <span class="price">70RMB / 100万科恩币</span>
             <span class="price">140RMB / 200万科恩币</span>
             <span class="price">300RMB / 600万科恩币</span>
-        </div><div class="category">
+        </div>
+        <div class="category">
             <h2>特殊</h2>
-            <span class="price">100RMB / 不出大金不结单 </span>
+            <span class="price">100RMB / 不出大金不结单</span>
             <span class="price">150RMB / 200万科恩币大金</span>
-            <span class="price">150RMB / 280万科恩币没大金</span>
-            <span class="price">300RMB / 指定大金</span>
-            <span class="price">热成像100RMB / 1t </span>
-            <span class="price">热成像80RMB / 120万科恩币</span>
-            <span class="price">热成像80RMB / 170万科恩币没T</span>
-            <span class="price">热成像280RMB / 3T</span>
-            <span class="price">单局赌约100RMB / 110万科恩币 </span>
-            <span class="price">单局赌约150RMB / 150万科恩币</span>
-            <span class="price">单局赌约300RMB / 280万科恩币</span>
-            <span class="price">机密888RMB / 1488万科恩币</span>
-            <span class="price">机密3888RMB / 6000万科恩币 </span>
-            <span class="price">清图100RMB / 不清图不结单</span>
-            <span class="price">老鼠单60RMB / 100万科恩币全静步/老鼠套装/无皮肤装备不计入保底</span>
-            <span class="price">老鼠单60RMB / 70万科恩币</span>
-            <span class="price">老鼠单120RMB / 140万科恩币</span>
-            <span class="price">男陪25RMB / 一小时</span>
-            <span class="price">女陪35RMB / 一小时</span>
-            <hr>
+        </div>
+        <hr>
     </div>
 
     <script>
@@ -134,3 +143,4 @@
     </script>
 </body>
 </html>
+
