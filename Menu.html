@@ -1,145 +1,138 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="樱花阁官方网站">
-    <title>樱花阁</title>
-    <link rel="icon" href="icon.png">
+    <title>Interactive Description Bars</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            margin: 0;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            min-height: 100vh;
-            position: relative;
-        }
-        h2 {
-            text-align: center;
-            margin: 10px 0;
-            border-bottom: 2px solid #ff80b3;
-            padding-bottom: 5px;
-        }
-        .container {
-            width: 100%;
-            max-width: 800px;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            padding: 20px;
-            margin-top: 20px; /* 调整与标题之间的间距 */
-        }
-        hr {
-            border: 1px solid #ff80b3;
-            width: 80%;
-            margin: 20px auto; /* 居中并增加与上下内容的间距 */
-        }
-        .category {
-            margin-top: 20px;
-            padding: 10px;
+            height: 100vh;
+            margin: 0;
             background-color: #f0f0f0;
-            border-radius: 5px;
-            display: inline-block;
-            margin-bottom: 20px; /* 调整分类之间的间距 */
         }
-        .price {
-            color: red;
-            display: block;
-            margin-top: 10px;
+
+        .container {
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
         }
+
         .button {
-            background-color: #ff80b3;
-            border: none;
+            background-color: #4CAF50;
             color: white;
-            padding: 15px 32px;
+            border: none;
+            padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
+            margin: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
             border-radius: 5px;
         }
-        .button:hover {
-            background-color: #ff99cc;
-            transform: scale(1.05);
+
+        .category {
+            display: none;
+            padding: 20px;
+            margin-top: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease;
         }
 
-        /* 添加樱花动画样式 */
-        .cherry-blossom {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            animation: blossom 4s linear infinite;
+        .category.fade-in {
+            display: block;
+            animation: fade-in 0.5s ease;
         }
 
-        @keyframes blossom {
-            0% {
-                transform: translateY(0) rotate(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(720deg);
+        @keyframes fade-in {
+            from {
                 opacity: 0;
             }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .description-bar {
+            height: 20px;
+            background-color: #3498db;
+            margin: 10px;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .description-bar:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 20%, transparent 80%);
+            transition: left 0.5s ease;
+        }
+
+        .description-bar:hover:before {
+            left: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container fade-in">
-        <h2>樱花阁电竞为你服务</h2>
-        <h2>连下3单及以上送1单</h2>
-        <h2>点10单以上送价值70块钱的单</h2>
-        <h2>坚决抵制拒绝卡保底行为</h2>
-        <h2>低于15w撤离不计入保底</h2>
-        <h2>服务至上</h2>
-        <div class="category">
-            <h2>普通图</h2>
-            <span class="price">10RMB / 20万科恩币</span>
-            <span class="price">20RMB / 45万科恩币</span>
-            <span class="price">30RMB / 66万科恩币</span>
+    <div class="container">
+        <h2>Interactive Description Bars Demo</h2>
+        
+        <button class="button" onclick="showCategory('category1')">Category 1</button>
+        <button class="button" onclick="showCategory('category2')">Category 2</button>
+        <button class="button" onclick="showCategory('category3')">Category 3</button>
+        <button class="button" onclick="showCategory('category4')">Category 4</button>
+        <button class="button" onclick="showCategory('category5')">Category 5</button>
+
+        <div id="category1" class="category">
+            <div class="description-bar"></div>
+            <div class="description-bar"></div>
+            <div class="description-bar"></div>
         </div>
-        <div class="category">
-            <h2>普通封锁</h2>
-            <span class="price">40RMB / 80万科恩币</span>
-            <span class="price">60RMB / 100万科恩币</span>
+        <div id="category2" class="category">
+            <div class="description-bar"></div>
+            <div class="description-bar"></div>
         </div>
-        <div class="category">
-            <h2>强化</h2>
-            <span class="price">50RMB / 80万科恩币</span>
-            <span class="price">70RMB / 100万科恩币</span>
-            <span class="price">140RMB / 200万科恩币</span>
-            <span class="price">300RMB / 600万科恩币</span>
+        <div id="category3" class="category">
+            <div class="description-bar"></div>
+            <div class="description-bar"></div>
+            <div class="description-bar"></div>
+            <div class="description-bar"></div>
         </div>
-        <div class="category">
-            <h2>特殊</h2>
-            <span class="price">100RMB / 不出大金不结单</span>
-            <span class="price">150RMB / 200万科恩币大金</span>
+        <div id="category4" class="category">
+            <div class="description-bar"></div>
         </div>
-        <hr>
+        <div id="category5" class="category">
+            <div class="description-bar"></div>
+            <div class="description-bar"></div>
+            <div class="description-bar"></div>
+        </div>
     </div>
 
     <script>
-        function createCherryBlossom() {
-            const blossom = document.createElement('div');
-            blossom.className = 'cherry-blossom';
-            blossom.style.left = `${Math.random() * 100}vw`;
-            document.body.appendChild(blossom);
-
-            blossom.addEventListener('animationend', () => {
-                blossom.remove();
+        function showCategory(categoryId) {
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => {
+                if (category.id === categoryId) {
+                    category.classList.add('fade-in');
+                } else {
+                    category.classList.remove('fade-in');
+                }
             });
         }
-
-        setInterval(createCherryBlossom, 2000);
     </script>
 </body>
 </html>
+
 
