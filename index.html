@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanami Official</title>
+    <title>樱花阁</title>
     <link rel="icon" href="icon.png">
     <style>
         body {
@@ -17,6 +17,7 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
+            position: relative; 
         }
         h2 {
             text-align: center;
@@ -28,6 +29,8 @@
             width: 100%;
             max-width: 800px;
             text-align: center;
+            opacity: 0; 
+            transition: opacity 1s ease-in-out;
         }
         hr {
             border: 1px solid #ff80b3; 
@@ -52,13 +55,8 @@
             transform: scale(1.05);
         }
         .fade-in {
-            animation: fadeIn 2s;
+            opacity: 1;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
         .cherry-blossom {
             position: absolute;
             height: 10px;
@@ -67,27 +65,48 @@
             border-radius: 50%;
             z-index: 1;
             animation: drift 10s linear infinite;
+            pointer-events: none; 
         }
         @keyframes drift {
             0% {
                 transform: translateY(0) rotate(0deg);
             }
             100% {
-                transform: translateY(-100vh) rotate(360deg);
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .button {
+                padding: 10px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cherry-blossom" style="top: 10%; left: 5%; animation-duration: 10s;"></div>
-    <div class="cherry-blossom" style="top: 20%; left: 20%; animation-duration: 15s;"></div>
-    <div class="cherry-blossom" style="top: 30%; left: 70%; animation-duration: 12s;"></div>
+    <script>
+        function createCherryBlossom() {
+            const blossom = document.createElement('div');
+            blossom.className = 'cherry-blossom';
+            blossom.style.left = `${Math.random() * 100}vw`; 
+            document.body.appendChild(blossom);
+
+            setTimeout(() => {
+                blossom.remove(); 
+            }, 10000);
+        }
+
+        setInterval(createCherryBlossom, 2000);
+    </script>
     
     <div class="container fade-in">
         <h2>欢迎来到樱花阁官方网站</h2>
         <h2>网站由 YOTRI 制作</h2>
-        <h2>主要负责人为Linus和Xil0</h2>
-        <h2>关于樱花阁的价格表，成员信息，契约等更多功能会在这里放送</h2>
+        <h2>主要负责人为 Linus 和 Xil0</h2>
+        <h2>关于樱花阁的价格表，成员信息，契约等更多功能会在这里发布</h2>
         <a href="Main.html" class="button">更多功能</a>
         <a href="indexJP.html" class="button">网站日语选择项</a>
         <h2>2024年6月29日 10AM</h2>
@@ -98,3 +117,4 @@
     </div>
 </body>
 </html>
+
